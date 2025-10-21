@@ -1,0 +1,162 @@
+html {
+	--text: #FFF;
+	background: #FFF1EB;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Poppins, sans-serif;
+  font-size: 16px;
+}
+
+header {
+	top: 0;
+	left: 0;
+	z-index: 1;
+	display: flex;
+	gap: 90px;
+	align-items: center;
+}
+
+h1{
+	font-weight: bold;
+	line-height: 113%;
+}
+span
+{
+	color: #FF5733;
+}
+nav {
+	width:55%;
+	background-color: #030027;
+	height: 56px;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	border-radius: 5rem;
+	backdrop-filter: blur(4px);
+  align-items: center;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	width: 80%;
+	padding: 0;
+	margin: 0;
+  align-items: center;
+ 
+}
+
+nav ul li {
+	font-weight: bold;
+}
+
+.logotexte {
+  height: 140px;
+  width: auto;
+}
+
+.button {
+  background-color: #FF5733;
+  color: white;
+  padding: 16px 34px;
+  border: none;
+  border-radius: 5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+ display: flex;
+ gap: 11px ;
+  height: 56px;
+}
+
+.button2 {
+  background-color: #FFD0BC;
+  color: #FF5733;
+  padding: 6px 32px;
+  border: none;
+  border-radius: 5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  width: 331px;
+  height: 47px;;
+}
+
+.button img{
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text);
+}
+
+
+.center {
+	text-align: center;
+}
+
+
+
+.titre{
+	text-align: center;
+	font-size: 2rem;
+}
+
+@media (min-width: 1200px) {
+	h2 {
+		font-size: 16.5rem;
+	}
+}
+
+
+
+#shop h2 {
+	background: -webkit-linear-gradient(0deg, rgba(249,113,9,1) 0%, rgba(236,155,33,1) 35%, rgba(255,185,19,1) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* animation helpers */
+*[data-animate="true"] {
+	opacity: 0;
+}
+
+.animate-slide-down {
+	animation: slide-down 300ms ease-out forwards;
+}
+
+/* ----------
+   ANIMATIONS
+   ---------- */
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.25);
+		opacity: 0.25;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(-150%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(var(--slide-translate-y));
+	}
+}
