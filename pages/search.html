@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Train CO₂ App - Simulation</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.png" />
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-btn">← Retour</a>
+    <h1>Simulation CO₂</h1>
+  </header>
+
+  <main class="search-container">
+    <section class="selectors">
+      <h2>Choisissez vos gares</h2>
+      <div class="form-group">
+        <label for="depart">Gare de départ</label>
+        <select id="depart"></select>
+      </div>
+      <div class="form-group">
+        <label for="arrivee">Gare d’arrivée</label>
+        <select id="arrivee"></select>
+      </div>
+      <button id="calculate" class="btn">Calculer les émissions</button>
+    </section>
+
+    <section class="results">
+      <div id="co2Result" class="result-box">
+        <p>Sélectionnez vos gares pour voir le résultat</p>
+      </div>
+      <div id="map" class="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Train CO₂ Tracker</p>
+  </footer>
+
+  <script src="js/stationSelector.js"></script>
+  <script src="js/co2Calculator.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
