@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Fly Tour</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.svg">
+
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="icon" href="assets/logo.png" />
+
+
+</head>
+
+<body>
+  <header>
+    <div>
+     <img src="images/logotexte.svg" alt="logo" class="logotexte">
+    </div>
+      <nav>
+    <ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="search.html">Planifier un trajet</a></li>
+			<li><a href="culturel.html">Points d'intérêt</a></li>
+		</ul>
+	</nav>
+  <div class="button-container">
+
+      <div class="button">
+          <a href="#about">Planifier un trajet</a>
+        <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#fff"><path d="M3 12L21 12M21 12L12.5 3.5M21 12L12.5 20.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+      </div>
+  </div>
+	
+  </header>
+  <main class="container-culturel">
+    <section class="carte-recherche">
+      <h1>Découvrez des lieux culturel</h1>
+      <p class="sous-titre">Recherchez les lieux culturels près de votre destination</p>
+
+      <div class="champ-ville">
+        <label for="ville" class="label-ville">
+          <img src="images/position.svg" alt="Icône localisation" class="icon-ville" />
+          <span>Ville</span>
+        </label>
+
+        <div class="input-box">
+          <input type="text" id="ville" placeholder="Rechercher une gare..." autocomplete="off" />
+          <div class="suggestions" id="suggestions-ville"></div>
+        </div>
+
+        <button id="btn-recherche" class="btn-recherche">
+          🔍 Rechercher
+        </button>
+      </div>
+    </section>
+
+    <section id="listeLieux" class="liste-lieux"></section>
+  </main>
+
+  <script src="js/lieuxCulturels.js"></script>
+</body>
+</html>

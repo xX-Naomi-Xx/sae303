@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Train CO₂ App - Simulation</title>
+    <title>Fly Tour</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="assets/logo.png" />
 
+
+   <!-- Librairies externes -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+ 
   <!-- Leaflet -->
   <link
     rel="stylesheet"
@@ -16,38 +25,131 @@
 </head>
 <body>
   <header>
-    <a href="index.html" class="back-btn">← Retour</a>
-    <h1>Simulation CO₂</h1>
-  </header>
+    <div>
+     <img src="images/logotexte.svg" alt="logo" class="logotexte">
+    </div>
+      <nav>
+    <ul>
+			<li><a href="index.html">Accueil</a></li>
+			<li><a href="search.html">Planifier un trajet</a></li>
+			<li><a href="culturel.html">Points d'intérêt</a></li>
+		</ul>
+	</nav>
+  <div class="button-container">
 
-  <main class="search-container">
-    <section class="selectors">
+      <div class="button">
+          <a href="#about">Planifier un trajet</a>
+        <?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#fff"><path d="M3 12L21 12M21 12L12.5 3.5M21 12L12.5 20.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+      </div>
+  </div>
+	
+  </header>
+  <section class="section-trajet">
+  <div class="trajet-container">
+    <h2>Planifiez votre voyage en train</h2>
+    <p>Recherchez votre trajet et découvrez l’impact écologique de votre choix</p>
+
+    <div class="trajet-form">
+      <div class="input-group">
+        <label for="depart">
+          <img src="./images/position.svg" alt="">
+          Gare de départ
+        </label>
+        <div class="input-wrapper">
+          <img src="./images/loupe-noir.svg" alt="">
+          <input type="text" id="depart" placeholder="Rechercher une gare..." />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="arrivee">
+          <img src="./images/fleche.svg" alt="">
+          Gare d’arrivée
+        </label>
+        <div class="input-wrapper">
+          <img src="./images/loupe-noir.svg" alt="">
+          <input type="text" id="arrivee" placeholder="Rechercher une gare..." />
+        </div>
+      </div>
+    </div>
+
+    <button id="boutonCalcul" class="btn-rechercher">
+      <img src="./images/loupe-blanc.svg" alt=""> Rechercher
+    </button>
+  </div>
+</section>
+
+<main class="zone-recherche">
+    <!-- <section class="zone-choix">
       <h2>Choisissez vos gares</h2>
-      <div class="form-group">
+      <div class="bloc-formulaire">
         <label for="depart">Gare de départ</label>
         <select id="depart"></select>
       </div>
-      <div class="form-group">
+      <div class="bloc-formulaire">
         <label for="arrivee">Gare d’arrivée</label>
         <select id="arrivee"></select>
       </div>
-      <button id="calculate" class="btn">Calculer les émissions</button>
-    </section>
+      <button id="boutonCalcul" class="bouton">Calculer les émissions</button>
+    </section> -->
+    <!-- <section class="zone-choix">
+  <h2>Planifiez votre voyage en train</h2>
+  <p class="sous-titre">Recherchez votre trajet et découvrez l’impact écologique de votre choix</p>
 
-    <section class="results">
-      <div id="co2Result" class="result-box">
-        <p>Sélectionnez vos gares pour voir le résultat</p>
+  <div class="choix-gare">
+    <div class="gare">
+      <label for="depart">
+        <img src="assets/depart.png" alt="Gare de départ" class="icon-gare"/>
+        Gare de départ
+      </label>
+      <input type="text" id="depart" placeholder="Rechercher une gare..." autocomplete="off"/>
+      <div class="suggestions" id="suggestions-depart"></div>
+    </div> -->
+<!-- 
+    <div class="gare">
+      <label for="arrivee">
+        <img src="assets/arrivee.png" alt="Gare d'arrivée" class="icon-gare"/>
+        Gare d’arrivée
+      </label>
+      <input type="text" id="arrivee" placeholder="Rechercher une gare..." autocomplete="off"/>
+      <div class="suggestions" id="suggestions-arrivee"></div>
+    </div>
+  </div>
+
+  <button id="boutonCalcul" class="btn-recherche">
+    🔍 Rechercher
+  </button>
+</section> -->
+
+
+    <div id="blocCarte">
+      <div id="panneauInfos">
+        <div id="zoneResultat" class="boite-resultat"></div>
+        <div id="graphiqueCO2"></div>
+        <div id="listeLieux" class="liste-lieux"></div>
       </div>
-      <div id="map" class="map"></div>
-    </section>
+      <div id="carte"></div>
+    </div>
   </main>
 
+
+
+
+
+
+  
   <footer>
     <p>© 2025 Train CO₂ Tracker</p>
   </footer>
 
-  <script src="js/stationSelector.js"></script>
-  <script src="js/co2Calculator.js"></script>
-  <script src="js/map.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <script src="js/choixGares.js"></script>
+  <script src="js/calculCO2.js"></script>
+  <script src="js/carte.js"></script>
 </body>
 </html>
